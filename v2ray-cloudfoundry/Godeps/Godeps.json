@@ -1,5 +1,5 @@
 {
-	"ImportPath": "main",
+	"ImportPath": "v2/v2ray",
 	"GoVersion": "go1",
 	"Deps": []
 }
