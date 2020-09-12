@@ -17,21 +17,15 @@ jobs:
       run: |
         chmod -R 777 ./IBM_Cloud_CLI/
         ./IBM_Cloud_CLI/ibmcloud config --check-version=false
-    - name: Login IBM Cloud
+    - name: Restart IBM Cloud
       env:
         IBM_ACCOUNT: ${{ secrets.IBM_ACCOUNT }}
         REGION_NUM: ${{ secrets.REGION_NUM }}
-      run: |
-        ./IBM_Cloud_CLI/ibmcloud login --apikey "$IBM_ACCOUNT" -r "$REGION_NUM" -g "$RESOURSE_ID"
-    - name: Target IBM Cloud
-      env:
         RESOURSE_ID: ${{ secrets.RESOURSE_ID }}
-      run: |
-        ./IBM_Cloud_CLI/ibmcloud cf install
-    - name: Restart IBM Cloud
-      env:
         IBM_APP_NAME: ${{ secrets.IBM_APP_NAME }}
       run: |
+        ./IBM_Cloud_CLI/ibmcloud login --apikey "$IBM_ACCOUNT" -r "$REGION_NUM" -g "$RESOURSE_ID"
         ./IBM_Cloud_CLI/ibmcloud target --cf
+        ./IBM_Cloud_CLI/ibmcloud cf install
         ./IBM_Cloud_CLI/ibmcloud cf restart "$IBM_APP_NAME"
 
