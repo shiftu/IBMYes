@@ -28,6 +28,7 @@ jobs:
         RESOURSE_ID: ${{ secrets.RESOURSE_ID }}
       run: |
         ./IBM_Cloud_CLI/ibmcloud target --cf
+        ./IBM_Cloud_CLI/ibmcloud target --cf-api 'https://api.us-south.cf.cloud.ibm.com'
         ./IBM_Cloud_CLI/ibmcloud cf install
     - name: Restart IBM Cloud
       env:
