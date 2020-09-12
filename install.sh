@@ -89,6 +89,7 @@ clone_repo(){
     
     chmod 0755 ./*
     cd ${SH_PATH}/IBMYes/v2ray-cloudfoundry
+    mv v2ray v2
     echo "初始化完成。"
 }
 
