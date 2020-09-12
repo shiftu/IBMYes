@@ -17,11 +17,11 @@ create_mainfest_file(){
     echo "生成随机WebSocket路径：${WSPATH}"
     
     cat >  ${SH_PATH}/IBMYes/v2ray-cloudfoundry/manifest.yml  << EOF
-    applications:
-    - path: .
-      name: ${IBM_APP_NAME}
-      random-route: true
-      memory: ${IBM_MEM_SIZE}M
+applications:
+- path: .
+  name: ${IBM_APP_NAME}
+  random-route: true
+  memory: ${IBM_MEM_SIZE}M
 EOF
 
     cat >  ${SH_PATH}/IBMYes/v2ray-cloudfoundry/v2ray/config.json  << EOF
